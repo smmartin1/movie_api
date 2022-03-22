@@ -27,11 +27,11 @@ http.createServer((request, response) => {
 		if (err) {
 			throw err;
 		}
-	  
+
 		response.writeHead(200, { 'Content-Type': 'text/html' });
-    	response.write(data);
-    	response.end();
-  	});
+    response.write(data);
+    response.end();
+  });
 }).listen(8080);
 
 console.log('My server is running on Port 8080.');
