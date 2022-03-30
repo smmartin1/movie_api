@@ -7,6 +7,98 @@
 
 	<body>
 		<h1>Documentation</h1>
-		<p>Hello World</p>
+
+		<div>
+			<table>
+				<thead>
+					<tr>
+						<th>Returns</th>
+						<th>URL</th>
+						<th>HTTP Method</th>
+						<th>Query Parameters</th>
+						<th>Requests</th>
+						<th>Response</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>List of movies</td>
+						<td>/movies</td>
+						<td>GET</td>
+						<td>-</td>
+						<td>None</td>
+						<td>JSON containing data of all the movies.</td>
+					</tr>
+					<tr>
+						<td>List of a specific movie</td>
+						<td>/movies/[title]</td>
+						<td>GET</td>
+						<td>:title</td>
+						<td>None</td>
+						<td>JSON object containing data of a specific movie. Example:
+							<pre>
+								<code>
+{
+	title: '...',
+	description: '...',
+	genre: {
+		name: '...',
+		description: '...'
+	},
+	director: {
+		name: '...',
+		bio: '...',
+		birth: '...',
+		death: '...'
+	},
+	imageURL: '...'
+}
+								</code>
+							</pre>
+						</td>
+					</tr>
+					<tr>
+						<td>List of movie genres</td>
+						<td>/movies/genre/[genre]</td>
+						<td>GET</td>
+						<td>:genreName</td>
+						<td>None</td>
+						<td>JSON containing data of a specific movie genre. Example:
+						<pre>
+								<code>
+{
+	genre: {
+		name: '...',
+		description: '...'
+	}
+}
+								</code>
+							</pre>
+						</td>
+					</tr>
+					<tr>
+						<td>Director Biography</td>
+						<td>/movies/director/[director]</td>
+						<td>GET</td>
+						<td>:directorName</td>
+						<td>None</td>
+						<td>JSON containing data of a director. Example:
+						<pre>
+								<code>
+{
+	director: {
+		name: '...',
+		bio: '...',
+		birth: '...',
+		death: '...'
+}
+									}
+								</code>
+							</pre>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
 	</body>
 </html>
