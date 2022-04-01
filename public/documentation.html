@@ -31,7 +31,7 @@
 					</tr>
 					<tr>
 						<td>List of a specific movie</td>
-						<td>/movies/[title]</td>
+						<td>/movies/:title</td>
 						<td>GET</td>
 						<td>:title</td>
 						<td>None</td>
@@ -59,7 +59,7 @@
 					</tr>
 					<tr>
 						<td>List of movie genres</td>
-						<td>/movies/genre/[genre]</td>
+						<td>/movies/genre/:genre</td>
 						<td>GET</td>
 						<td>:genreName</td>
 						<td>None</td>
@@ -78,7 +78,7 @@
 					</tr>
 					<tr>
 						<td>Director Biography</td>
-						<td>/movies/director/[director]</td>
+						<td>/movies/director/:director</td>
 						<td>GET</td>
 						<td>:directorName</td>
 						<td>None</td>
@@ -96,6 +96,66 @@
 								</code>
 							</pre>
 						</td>
+					</tr>
+					<tr>
+						<td>Adding a new user</td>
+						<td>/users</td>
+						<td>POST</td>
+						<td>-</td>
+						<td>None</td>
+						<td>JSON object containing data of the new user. Example:
+							<pre>
+								<code>
+{
+	id: '...',
+	name: '...',
+	favoriteMovies: []
+}
+								</code>
+							</pre>
+						</td>
+					</tr>
+					<tr>
+						<td>Updating a current user by their id</td>
+						<td>/users/:id</td>
+						<td>PUT</td>
+						<td>:id</td>
+						<td>None</td>
+						<td>JSON object containing the updated info of the current user. Example:
+							<pre>
+								<code>
+{
+	id: '...',
+	name: '...',
+	favoriteMovies: []
+}
+								</code>
+							</pre>
+						</td>
+					</tr>
+					<tr>
+						<td>Adding a movie to a current user's list</td>
+						<td>/users/:id/:movieTitle</td>
+						<td>POST</td>
+						<td>:movieTitle</td>
+						<td>None</td>
+						<td>[movieTitle] has been added to user [id]'s arrary</td>
+					</tr>
+					<tr>
+						<td>Removing a movie to a current user's list</td>
+						<td>/users/:id/:movieTitle</td>
+						<td>DELETE</td>
+						<td>:movieTitle</td>
+						<td>None</td>
+						<td>[movieTitle] has been removed from user [id]'s arrary</td>
+					</tr>
+					<tr>
+						<td>Removing a current user</td>
+						<td>/users/:id</td>
+						<td>DELETE</td>
+						<td>:id</td>
+						<td>None</td>
+						<td>User [id] has been deleted.</td>
 					</tr>
 				</tbody>
 			</table>
