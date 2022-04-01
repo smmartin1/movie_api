@@ -10,7 +10,18 @@ const app = express();
 app.use(bodyParser.json());
 app.use(morgan('common'));
 
-let users = [];
+let users = [
+	{
+		id: 1,
+		name: 'Shannon',
+		favoriteMovies: []
+	},
+	{
+		id: 2,
+		name: 'Kathryn',
+		favoriteMovies: ['The Shining']
+	}
+];
 
 let movies = [
 	{
@@ -173,9 +184,10 @@ app.get('/documentation', (req, res) => {
   res.sendFile('public/documentation.html', { root: __dirname });
 });
 
+//Create
 app.post('/users', (req, res) => {
 	const newUser = req.body;
-	
+
 	if (newUser.name) {
 		newUser.id = uuid.v4();
 		users.push(newUser);
@@ -185,6 +197,64 @@ app.post('/users', (req, res) => {
 	}
 });
 
+//Update
+app.put('/users/:id', (req, res) => {
+	const { id } = req.params;
+	const updatedUser = req.body;
+
+	let user = users.find ( user => user.id == id);
+
+	if (user) {
+		user.name = updatedUser.name;
+		res.status(200).json(user);
+	} else {
+		res.status(400).send('No such user')
+	}
+});
+
+//Post
+app.post('/users/:id/:movieTitle', (req, res) => {
+	const { id, movieTitle } = req.params;
+
+	let user = users.find ( user => user.id == id);
+
+	if (user) {
+		user.favoriteMovies.push(movieTitle);
+		res.status(200).send(movieTitle + ' has been added to user ' + id + '\'s arrary');
+	} else {
+		res.status(400).send('No such user')
+	}
+});
+
+//Delete
+app.delete('/users/:id/:movieTitle', (req, res) => {
+	const { id, movieTitle } = req.params;
+
+	let user = users.find ( user => user.id == id);
+
+	if (user) {
+		user.favoriteMovies = user.favoriteMovies.filter(title => title !== movieTitle);
+		res.status(200).send(movieTitle + ' has been removed from user ' + id + '\'s arrary');
+	} else {
+		res.status(400).send('No such user')
+	}
+});
+
+//Delete
+app.delete('/users/:id', (req, res) => {
+	const { id } = req.params;
+
+	let user = users.find ( user => user.id == id);
+
+	if (user) {
+		users = users.filter(user => user.id != id);
+		res.status(200).send('User ' + id + ' has been deleted.');
+	} else {
+		res.status(400).send('No such user')
+	}
+});
+
+//Read
 app.get('/movies', (req, res) => {
   res.status(200).json(movies);
 });
@@ -222,6 +292,7 @@ app.get('/movies/director/:directorName', (req, res) => {
 	}
 });
 
+//Express
 app.use(express.static('public'));
 
 //Error Handling
