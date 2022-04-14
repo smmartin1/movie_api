@@ -30,8 +30,8 @@
 						<td>JSON containing data of all the movies.</td>
 					</tr>
 					<tr>
-						<td>List of a specific movie</td>
-						<td>/movies/:title</td>
+						<td>Movie Information based on Title</td>
+						<td>/movies/:Title</td>
 						<td>GET</td>
 						<td>:title</td>
 						<td>None</td>
@@ -59,9 +59,9 @@
 					</tr>
 					<tr>
 						<td>List of movie genres</td>
-						<td>/movies/genre/:genre</td>
+						<td>/genre/:Name</td>
 						<td>GET</td>
-						<td>:genreName</td>
+						<td>:name</td>
 						<td>None</td>
 						<td>JSON containing data of a specific movie genre. Example:
 						<pre>
@@ -78,9 +78,9 @@
 					</tr>
 					<tr>
 						<td>Director Biography</td>
-						<td>/movies/director/:director</td>
+						<td>/director/:Name</td>
 						<td>GET</td>
-						<td>:directorName</td>
+						<td>:Name</td>
 						<td>None</td>
 						<td>JSON containing data of a director. Example:
 						<pre>
@@ -107,9 +107,11 @@
 							<pre>
 								<code>
 {
-	id: '...',
-	name: '...',
-	favoriteMovies: []
+	Username: '...',
+  Password: '...',
+  Email: '...',
+  Birthday: MMDDYYYY,
+  FavoriteMovies: [...]
 }
 								</code>
 							</pre>
@@ -117,17 +119,19 @@
 					</tr>
 					<tr>
 						<td>Updating a current user by their id</td>
-						<td>/users/:id</td>
+						<td>/users/:Username</td>
 						<td>PUT</td>
-						<td>:id</td>
+						<td>:Username</td>
 						<td>None</td>
 						<td>JSON object containing the updated info of the current user. Example:
 							<pre>
 								<code>
 {
-	id: '...',
-	name: '...',
-	favoriteMovies: []
+	Username: '...',
+  Password: '...',
+  Email: '...',
+  Birthday: MMDDYYYY,
+  FavoriteMovies: [...]
 }
 								</code>
 							</pre>
@@ -135,27 +139,27 @@
 					</tr>
 					<tr>
 						<td>Adding a movie to a current user's list</td>
-						<td>/users/:id/:movieTitle</td>
+						<td>/users/:Username/movies/:MovieID</td>
 						<td>POST</td>
-						<td>:movieTitle</td>
+						<td>:MovieID</td>
 						<td>None</td>
-						<td>[movieTitle] has been added to user [id]'s arrary</td>
+						<td>Favorite Movies: ['...', '...']</td>
 					</tr>
 					<tr>
 						<td>Removing a movie to a current user's list</td>
-						<td>/users/:id/:movieTitle</td>
+						<td>/users/:Username/movies/:MovieID</td>
 						<td>DELETE</td>
-						<td>:movieTitle</td>
+						<td>:MovieID</td>
 						<td>None</td>
-						<td>[movieTitle] has been removed from user [id]'s arrary</td>
+						<td>Favorite Movies: ['...']</td>
 					</tr>
 					<tr>
 						<td>Removing a current user</td>
-						<td>/users/:id</td>
+						<td>/users/:Username</td>
 						<td>DELETE</td>
-						<td>:id</td>
+						<td>:Username</td>
 						<td>None</td>
-						<td>User [id] has been deleted.</td>
+						<td>Username was deleted.</td>
 					</tr>
 				</tbody>
 			</table>
