@@ -23,6 +23,8 @@ const { check, validationResult } = require('express-validator');
 
 const app = express();
 
+const port = process.env.PORT || 8080;
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -230,7 +232,7 @@ app.use((err, req, res, next) => {
 });
 
 //Port Number
-const port = process.env.PORT || 8080;
+
 app.listen(port, '0.0.0.0', () => {
   console.log('Listening on port ' + port);
 });
