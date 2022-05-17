@@ -32,7 +32,7 @@ let allowedOrigin = ['http://localhost:8080', 'https://fathomless-peak-84165.her
 app.use(cors({
   origin: (origin, callback) => {
     if(!origin) return callback(null, true);
-    if(allowedOrigins.indexOf(origin) === -1){
+    if(allowedOrigin.indexOf(origin) === -1){
       let message = 'The CORS policy for this application doesn’t allow access from origin ' + origin;
       return callback(new Error(message ), false);
     }
