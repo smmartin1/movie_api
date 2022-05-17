@@ -27,7 +27,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(morgan('common'));
 
-//let allowedOrigins = ['http://localhost:8080', 'https://fathomless-peak-84165.herokuapp.com', 'http://localhost:1234'];
+let allowedOrigins = ['http://localhost:8080', 'https://fathomless-peak-84165.herokuapp.com', 'http://localhost:1234'];
 
 app.use(cors({
   origin: (origin, callback) => {
