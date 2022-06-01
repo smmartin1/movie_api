@@ -125,8 +125,8 @@ app.put('/users/:Username', passport.authenticate('jwt', {session: false}),
   });
 });
 
-// Get all users passport.authenticate('jwt', {session: false}),
-app.get('/users', (req, res) => {
+// Get all users
+app.get('/users', passport.authenticate('jwt', {session: false}), (req, res) => {
   Users.find()
     .then((users) => {
       res.status(201).json(users);
