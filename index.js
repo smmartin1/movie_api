@@ -94,9 +94,9 @@ app.post('/users',
 //Update a Current User
 app.put('/users/:Username', passport.authenticate('jwt', {session: false}),
 	[
-    check('Username', 'Username is required').isLength({min: 5}),
+    //check('Username', 'Username is required').isLength({min: 5}),
     check('Username', 'Username cannot contain special characters.').isAlphanumeric(),
-    check('Password', 'Password is required').not().isEmpty(),
+    //check('Password', 'Password is required').not().isEmpty(),
     check('Email', 'Email does not appear to be valid').isEmail()
   ], (req, res) => {
     let errors = validationResult(req);
