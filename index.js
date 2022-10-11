@@ -26,7 +26,9 @@ const port = process.env.PORT || 8080;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(morgan('common'));
+app.use(cors());
 
+/*
 let allowedOrigins = [
 	'http://localhost:8080',
 	'https://fathomless-peak-84165.herokuapp.com',
@@ -43,6 +45,7 @@ app.use(cors({
     return callback(null, true);
   }
 }));
+*/
 
 let auth = require('./auth')(app);
 
