@@ -30,8 +30,7 @@ app.use(morgan('common'));
 let allowedOrigins = [
 	'http://localhost:8080',
 	'https://fathomless-peak-84165.herokuapp.com',
-	'http://localhost:1234',
-	'http://localhost:4200/'
+	'http://localhost:1234'
 ];
 
 app.use(cors({
