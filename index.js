@@ -1,5 +1,8 @@
 //JavaScript Document
 
+/**
+ * Movie API
+ */
 const express = require('express'),
 	bodyParser = require('body-parser'),
  	uuid = require('uuid'),
@@ -111,7 +114,7 @@ app.post('/users',
 
 	/**
 	 * Update User
-	 * @param Username
+	 * @param {string} Username
 	 * @returns updated info on user
 	 * @requires passport
 	 */
@@ -166,7 +169,7 @@ app.get('/users', passport.authenticate('jwt', {session: false}), (req, res) => 
 
 /**
  * Get an user by username
- * @param Username
+ * @param {string} Username
  * @returns User information
  * @requires passport
  */
@@ -183,7 +186,7 @@ app.get('/users/:Username', passport.authenticate('jwt', {session: false}), (req
 
 /**
  * Get a user's favorite movie list
- * @param Username
+ * @param {string} Username
  * @returns User's favorite movies
  * @requires passport
  */
@@ -200,8 +203,8 @@ app.get('/users/:Username/movies', passport.authenticate('jwt', {session: false}
 
 /**
  * Add a movie to a user's favorite movie list
- * @param Username
- * @param MovieID
+ * @param {string} Username
+ * @param {string} MovieID
  * @returns User's favorite movies
  * @requires passport
  */
@@ -222,8 +225,8 @@ app.post('/users/:Username/movies/:MovieID', passport.authenticate('jwt', {sessi
 
 /**
  * Delete a movie from a User's List
- * @param Username
- * @param MovieID
+ * @param {string} Username
+ * @param {string} MovieID
  * @returns User's favorite movies
  * @requires passport
  */
@@ -244,7 +247,7 @@ app.delete('/users/:Username/movies/:MovieID', passport.authenticate('jwt', {ses
 
 /**
  * Delete a user
- * @param Username
+ * @param {string} Username
  * @returns an updated list of users
  * @requires passport
  */
@@ -281,7 +284,7 @@ app.get('/movies', passport.authenticate('jwt', {session: false}), (req, res) =>
 
 /**
  * Get a single movie information
- * @param Title
+ * @param {string} Title
  * @returns a movie's information
  * @requires passport
  */
@@ -298,7 +301,7 @@ app.get('/movies/:Title', passport.authenticate('jwt', {session: false}), (req, 
 
 /**
  * Get a genre by name
- * @param Name
+ * @param {string} Name
  * @returns a genre's information
  * @requires passport
  */
@@ -315,7 +318,7 @@ app.get('/genre/:Name', passport.authenticate('jwt', {session: false}), (req, re
 
 /**
  * Get a director's information
- * @param Name
+ * @param {string} Name
  * @returns a director's information
  * @requires passport
  */
