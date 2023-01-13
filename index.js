@@ -262,7 +262,7 @@ app.delete('/users/:Username', passport.authenticate('jwt', {session: false}), (
  * @returns an array of movies from a database
  * @requires passport
  */
-app.get('/movies', passport.authenticate('jwt', {session: false}), (req, res) => {
+app.get('/movies', /*passport.authenticate('jwt', {session: false}),*/ (req, res) => {
   Movies.find().then((movie) => {
     res.status(201).json(movie);
   }).catch((err) => {
