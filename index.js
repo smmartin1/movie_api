@@ -29,14 +29,14 @@ const port = process.env.PORT || 8080;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(morgan('common'));
-app.use(cors({origin: '*'}));
+//app.use(cors({origin: '*'}));
 
-/*
 let allowedOrigins = [
 	'http://localhost:8080',
 	'https://fathomless-peak-84165.herokuapp.com',
 	'http://localhost:1234',
-  'https://smmartin1.github.io/'
+  'http://localhost:4200',
+  'https://smmartin1.github.io/myFlix-Angular-client'
 ];
 
 app.use(cors({
@@ -49,7 +49,6 @@ app.use(cors({
     return callback(null, true);
   }
 }));
-*/
 
 let auth = require('./auth')(app);
 
