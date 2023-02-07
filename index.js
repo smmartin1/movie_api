@@ -36,7 +36,7 @@ let allowedOrigins = [
 	'https://fathomless-peak-84165.herokuapp.com',
 	'http://localhost:1234',
   'http://localhost:4200',
-  'https://smmartin1.github.io/myFlix-Angular-client'
+  'https://smmartin1.github.io'
 ];
 
 app.use(cors({
