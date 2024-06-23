@@ -36,6 +36,7 @@ let allowedOrigins = [
 	'https://fathomless-peak-84165.herokuapp.com',
 	'http://localhost:1234',
   'http://localhost:4200',
+  'http://localhost:3000',
   'https://smmartin1.github.io'
 ];
 
