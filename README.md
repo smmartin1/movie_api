@@ -8,6 +8,7 @@ Languages used:
     -NodeJS
 
 To run the app: node index.js
+
 *Note: to have the app run properly install the packages, type 'npm install' in the project's terminal before running the app*
 
 Software to test/use the app: Portman or anything similar
