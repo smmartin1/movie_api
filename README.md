@@ -1,6 +1,13 @@
 # movie_api
-A database that will allow users to be able to register to a Movie app where they can find a certain movie within the database via Title, Genre, or Director. They are also able to update their information, add movies to their favorite movies list along with removing one, and be able to delete their account if they want to.
+The server-side component of a "movies" web application
 
-This project mainly uses JavaScript via Node.js and MongoDB to create a database of movies and users and to perform the four operations of CRUD.
+"The web application will provide users with access to information about different movies, directors, and genres. Users will be able to sign up, update their personal information, and create a list of their favorite movies." -CareerFoundry Full Stack Development Course Achievement Project 2 Objective
 
-The project depends on multiple packages such as mongoose and express to perform the CRUD operations.
+Languages used:
+    -JavaScript
+    -NodeJS
+
+To run the app: node index.js
+*Note: to have the app run properly install the packages, type 'npm install' in the project's terminal before running the app*
+
+Software to test/use the app: Portman or anything similar
